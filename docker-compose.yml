@@ -1,0 +1,15 @@
+services:
+  web:
+    build: web
+    volumes:
+      - ./web:/root/website/web
+    restart: always
+    network_mode: host
+      
+  nginx:
+    build: nginx
+    restart: always
+    network_mode: host
+    depends_on:
+      - web
+
